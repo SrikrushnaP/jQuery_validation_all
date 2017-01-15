@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Interview Main Question</title>
+	<style type="text/css">
+		li{
+			list-style:none;
+			margin-bottom:9px;
+		}
+		ul li span{
+			float:left;
+			width:111px;
+		}
+		ul li label{
+			float:right;
+			margin-left: 5px;
+			color: red;
+		}
+		[type="submit"], [type="reset"]{
+			height:39px;
+		}
+		[type="reset"]{
+			margin-left:110px;
+		}
+		[type="submit"]:hover{
+			background-color:green;
+		}
+		[type="reset"]:hover{
+			background-color:pink;
+		}
+		h3{
+			text-align: center;
+		}
+		.container{
+			padding: 30px 0px;
+			width: 490px;
+			background-color: yellow;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/jquery.validate.min.js"></script>
+</head>
+<body>
+<div class="container">
+<h3>Student Registeration Form</h3>
+<form action="#" id="regForm" name="regForm" onsubmit="return validateForm()">
+<!-- <form onsubmit="return validateForm()"> -->
+<ul>
+	<li><span>Name: </span></li>
+    <li><input type="text" name="txtName" id="txtName"></li>
+
+    <li><span>Father Name: </span></li>
+    <li><input type="text" name="txtFname" id="txtFname"></li>
+    
+    <li><span>DOB: </span></li>
+    <li><input type="date" name="txtDob" id="txtDob"></li>
+
+    <li><span>Sex: </span></li>
+    <li>
+    	<input type="radio" name="radSex">Male
+    	<input type="radio" name="radSex">Female
+    </li>
+    
+    <li><span>Email: </span></li>
+    <li><input type="email" name="txtEmail" id="txtEmail"></li>
+
+    <li><span>Course: </span></li>
+    <li>
+    	<select id="drpValue" name="drpValue">
+    		<option value="">Select</option>
+    		<option>B.tech</option>
+    		<option>MCA</option>
+    		<option>M.tech</option>
+    		<option>Other</option>
+    	</select>
+    </li>
+    
+    <li><span>Current Address: </span></li>
+    <li><textarea name="txtAddr" id="txtAddr"></textarea><li>
+
+    <li><span>PIN: </span></li>
+    <li><input type="text" name="txtPin" id="txtPin"></li>
+    
+    <li><span>Mobile NO: </span></li>
+    <li><input type="text" name="txtMno" id="txtMno"></li>
+    
+    <li>
+    	<input type="reset" value="Reset">
+    	<input type="submit" value="Register">
+    </li>
+</ul>
+</form>
+</div>
+<script type="text/javascript">
+$("#regForm").validate({
+	rules: {
+		txtName:	"required",
+		txtFname:	"required",
+		txtDob: 	"required",
+		radSex: 	"required",
+		txtEmail: 	"required",
+		drpValue: 	"required",
+		txtAddr: 	"required",
+		txtPin: 	"required",
+		txtMno:{
+			required: true,
+        	minlength: 10
+        }
+	},
+	messages: {
+		txtName: "Name Must be Required",
+		txtMno: "Enter Valid Mobile No"
+	},
+	submitHandler: function(form) {
+      form.submit();
+    }
+});
+// function validateForm(){
+// 	var txtName = document.getElementById('txtName').value;
+// 	var txtFname = document.getElementById('txtFname').value;
+// 	var txtDob = document.getElementById('txtDob').value;
+// 	var radSex = document.getElementsByName("radSex");
+// 	var txtEmail = document.getElementById('txtEmail').value;
+// 	var drpValue = document.getElementById('drpValue').value;
+// 	var txtAddr = document.getElementById('txtAddr').value;
+// 	var txtPin = document.getElementById('txtPin').value;
+// 	var txtMno = document.getElementById('txtMno').value;
+
+// 	if (txtName == '') {
+// 		alert('Name must be required');
+// 		return false;
+// 	}
+// 	if (txtFname == '') {
+// 		alert('Father Name must be required');
+// 		return false;
+// 	}
+// 	if (txtDob == '') {
+// 		alert('DOB must be required');
+// 		return false;
+// 	}
+// 	if (radSex[0].checked==false && radSex[1].checked==false) {
+// 		alert('Select one');
+// 		return false;
+// 	}
+// 	if (txtEmail == '') {
+// 		alert('Email must be required');
+// 		return false;
+// 	}
+// 	if (drpValue == '') {
+// 		alert('Select Your Course');
+// 		return false;
+// 	}
+		
+// 	if (txtAddr == '') {
+// 		alert('Address must be required');
+// 		return false;
+// 	}
+// 	if (txtPin == '') {
+// 		alert('PIN must be required');
+// 		return false;
+// 	}
+// 	if (txtMno == '') {
+// 		alert('Mobile NO must be required');
+// 		return false;
+// 	}
+// }
+</script>
+</body>
+</html>
